@@ -1,0 +1,20 @@
+<div id="main-container" flex layout="row" layout-fill layout-wrap layout-align="center start">
+    <div class="pokemon-item" flex="30" flex-gt-sm="23" flex-gt-md="15" layout="column" layout-align="center center"
+    *ngFor="let pokemon of pokemon_list">
+
+        <div class="pokemon-item-card md-whiteframe-2dp" layout="column" layout-align="center center">
+
+        <div class="pokemon-stats" layout="row" layout-align="start center">
+            <div flex="50" class="pokemon-stat-cp">{{ pokemon.pokemon_data.cp }}</div>
+            <div flex="50" class="pokemon-stat-iv" layout="row" layout-align="end center">
+            <md-progress-circle class="iv-circle" mode="determinate" [value]="pokemon.pokemon_data.perfection"></md-progress-circle>
+            <div flex class="iv-display">{{ pokemon.pokemon_data.perfection }}%</div>
+            </div>
+        </div>
+        <div>
+            <img class="pokemon-img" src="{{pokemon.img}}">
+        </div>
+        <div class="pokemon-name"><span>{{ pokemon.name }}</span></div>
+        </div>
+    </div>
+</div>

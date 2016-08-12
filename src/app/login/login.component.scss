@@ -1,0 +1,18 @@
+.login-form {
+  height: 200px;
+
+  md-input {
+    width: 250px;
+  }
+}
+
+.login-button {
+  max-height: 35px;
+  max-width: 100px;
+  background: firebrick;
+  color: white;
+  
+  &:hover {
+    background: darkred;
+  }
+}

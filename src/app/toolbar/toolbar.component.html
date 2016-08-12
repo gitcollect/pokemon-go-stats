@@ -1,0 +1,56 @@
+<div class="toolbar" layout="column" layout-align="start start">
+  
+  <div class="toolbar-topline">
+    <button md-button class="window-control minimize-button" (click)="minimizeWindow()">
+      <i md-icon>keyboard_arrow_down</i>
+    </button>
+    <button md-button class="window-control maximize-button" (click)="maximizeWindow()">
+      <i md-icon>keyboard_arrow_up</i>
+    </button>
+    <button md-button class="window-control close-button" (click)="closeWindow()">
+      <i md-icon>close</i>
+    </button>
+  </div>
+
+  <div class="toolbar-content" flex layout="row" layout-align="center center">
+
+    <div flex="100" class="login-image" layout-align="center center" [hidden]="logued">
+        <h1>Login</h1>
+    </div>
+
+    <div class="filter-bar" flex="100" layout="row" layout-align="center center" [hidden]="!logued">
+
+      <md-input class="toolbar-search" flex="20" type="text" placeholder="Search by name"
+        [(ngModel)]="search"
+        (change)="filterByText()">
+      </md-input>
+      <button md-button class="md-icon-button" [hidden]="search===''" (click)="search='';filterByText('')">
+        <i md-icon>clear</i>
+      </button>
+      
+      <div flex></div>
+
+      <md-radio-group [(ngModel)]="sort_by" (change)="sortChanged($event.value)">
+        <md-radio-button value="date">Recent</md-radio-button>
+        <md-radio-button value="name">A-Z</md-radio-button>
+        <md-radio-button value="cp">CP</md-radio-button>
+        <md-radio-button value="iv">IV</md-radio-button>
+      </md-radio-group>
+
+      <div flex></div>
+
+      <div flex layout="row" class="toolbar-buttons">
+        <button md-button class="md-icon-button" (click)="refresh()">
+          <i md-icon>refresh</i>
+        </button>
+
+        <button md-button class="md-icon-button" (click)="logout()">
+          <i md-icon>exit_to_app</i>
+        </button>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

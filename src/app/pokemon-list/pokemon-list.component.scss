@@ -1,0 +1,48 @@
+.pokemon-list {
+  padding: 10px;
+}
+
+.pokemon-item {
+  padding: 10px;
+}
+
+.pokemon-item-card {
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.pokemon-stats {
+  display: flex;
+  width: 100%;
+}
+
+.pokemon-stat-cp {
+  text-align: center;
+  font-weight: bold;
+  font-size: 21px;
+  position: relative;
+}
+
+.pokemon-stat-iv {
+  text-align: center;
+  position: relative;
+  display: block;
+}
+
+.iv-circle {
+  height: 46px !important;
+  width: 46px !important;
+  float: right;
+  position: relative;
+  right: 10px;
+}
+
+.iv-display {
+    height: 45px;
+    width: 45px;
+    max-width: 45px;
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    top: 13px;
+}

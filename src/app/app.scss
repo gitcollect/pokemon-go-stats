@@ -1,0 +1,21 @@
+$md-font-url: "./fonts/";
+@import "~ng2-material/font/font";
+@import "~ng2-material/all";
+
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/lato-normal.ttf');
+}
+
+html, body {
+  font-family: 'Lato';
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.content {
+  max-height: calc(100% - 90px);
+  height: calc(100% - 90px);
+}

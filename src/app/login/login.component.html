@@ -1,0 +1,19 @@
+<div id="main-container" flex layout="row" layout-fill layout-align="center center">
+    <form class="login-form" flex="50" layout="column" layout-align="center center" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <md-input flex="100" #email
+                required
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                [(ngModel)]="user.email">
+      </md-input>
+      <md-input flex="100" #password
+                required
+                type="password"
+                name="password"
+                placeholder="Password"
+                [(ngModel)]="user.password">
+      </md-input>
+      <button flex="100" class="login-button" type="submit" [disabled]="!loginForm.form.valid" md-raised-button>Login</button>
+  </form>
+</div>
