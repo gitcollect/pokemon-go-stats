@@ -1,6 +1,8 @@
 # Pokemon Go Stats Calculator
 
-![Screenshot](https://i.imgur.com/ZpLDzHB.png)
+![Screenshot 1](https://i.imgur.com/ICAsgKS.png)
+
+![Screenshot 1](https://i.imgur.com/f4d2nHN.png)
 
 ## Downloads
 
