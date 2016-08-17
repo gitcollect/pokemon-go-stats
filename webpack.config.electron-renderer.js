@@ -59,7 +59,7 @@ module.exports = {
     
     new CopyWebpackPlugin([
       {from: 'src/node_modules/lato-font/fonts/lato-normal/lato-normal.ttf', to: 'fonts'},
-      {from: 'src/node_modules/pogobuf/node_modules/node-pogo-protos/proto', to: 'proto'},
+      {from: 'src/node_modules/node-pogo-protos/proto', to: 'proto'},
       {from: 'src/node_modules/node-pogo-signature/lib//proto', to: 'proto'}
     ])
   ],

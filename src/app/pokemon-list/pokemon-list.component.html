@@ -40,17 +40,17 @@
         <div class="pokemon-detail-ivs">
             <div class="iv-value">
                 <span>ATK</span>
-                <md-progress-bar mode="determinate" value="100 * selected_pokemon.pokemon_data.individual_attack / 15" color="warn"></md-progress-bar>
+                <md-progress-bar mode="determinate" [value]="100 * selected_pokemon.pokemon_data.individual_attack / 15" color="warn"></md-progress-bar>
                 <div>{{ selected_pokemon.pokemon_data.individual_attack }}<span>/15</span></div>
             </div>
             <div class="iv-value">
                 <span>DEF</span>
-                <md-progress-bar mode="determinate" value="100 * selected_pokemon.pokemon_data.individual_defense/ 15" color="accent"></md-progress-bar>
+                <md-progress-bar mode="determinate" [value]="100 * selected_pokemon.pokemon_data.individual_defense/ 15" color="accent"></md-progress-bar>
                 <div>{{ selected_pokemon.pokemon_data.individual_defense }}<span>/15</span></div>
             </div>
             <div class="iv-value">
                 <span>STA</span>
-                <md-progress-bar mode="determinate" value="100 * selected_pokemon.pokemon_data.individual_stamina/ 15" color="primary"></md-progress-bar>
+                <md-progress-bar mode="determinate" [value]="100 * selected_pokemon.pokemon_data.individual_stamina/ 15" color="primary"></md-progress-bar>
                 <div>{{ selected_pokemon.pokemon_data.individual_stamina }}<span>/15</span></div>
             </div>
         </div>
