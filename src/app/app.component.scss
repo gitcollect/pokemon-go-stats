@@ -1,0 +1,60 @@
+@font-face {
+  font-family: Lato !important;
+  src: url('./fonts/lato-normal.ttf');
+}
+
+html, body {
+  font-family: 'Lato' !important;
+  background: transparent;
+  margin: 0px;
+}
+
+[hidden] {
+  display: none !important;
+}
+.main {
+  background: #212121;
+  color: #FAFAFA;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+
+.content {
+  max-height: calc(100% - 90px);
+  height: calc(100% - 90px);
+  display: flex;
+  flex-direction: row;
+}
+
+.md-input-element {
+  color: #BDBDBD !important;
+}
+
+.md-input-placeholder {
+  color: #9E9E9E !important;
+} 
+
+.md-input-underline {
+  border-top: 1px solid #424242 !important;
+}
+
+.md-ink-ripple {
+  display: none !important;
+
+}
+
+.md-radio-checked .md-radio-outer-circle {
+  border-color: firebrick !important;
+}
+
+.md-radio-inner-circle {
+  background: firebrick !important;
+}
+
+.md-input-underline .md-input-ripple {
+  background-color: firebrick !important;
+}
