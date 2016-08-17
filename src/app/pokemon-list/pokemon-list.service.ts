@@ -34,13 +34,18 @@ export class PokemonListService {
               pokemon_data.individual_defense +
               pokemon_data.individual_stamina) * 100 / 45).toFixed(0);
 
-            return Object.assign({pokemon_data: pokemon_data}, _.find(pokedex.pokemon, (pok: any) => pok.id === pokemon_data.pokemon_id));
+            let pokemon_item = Object.assign({pokemon_data: pokemon_data}, _.find(pokedex.pokemon, (pok: any) => pok.id === pokemon_data.pokemon_id));
 
-          }).sort((a: any, b: any) => {
-            return b.pokemon_data.creation_time_ms - a.pokemon_data.creation_time_ms;
+            // Convert type string to array types
+
+            pokemon_item.type = pokemon_item.type.toLowerCase().split(" / ");
+            pokemon_item.pokemon_data.creation_date = new Date(pokemon_item.pokemon_data.creation_time_ms);
+
+            return pokemon_item;
+
           });
 
-          this.pokemonListChange.next(this.pokemon_list);
+          this.sortPokemonList(this.current_sort);
           return resolve(this.pokemon_list);
         }
         else {
@@ -56,7 +61,6 @@ export class PokemonListService {
   sortPokemonList(sort_by) {
 
     let working_list = this.pokemon_list_filtered.length > 0 ? this.pokemon_list_filtered : this.pokemon_list;
-    console.log(working_list);
     switch (sort_by) {
       case  "iv":
         working_list.sort((a: any, b: any) => {
@@ -67,6 +71,12 @@ export class PokemonListService {
       case "cp":
         working_list.sort((a: any, b: any) => {
           return b.pokemon_data.cp - a.pokemon_data.cp;
+        });
+      break;
+
+      case "number":
+        working_list.sort((a: any, b: any) => {
+          return a.pokemon_data.pokemon_id - b.pokemon_data.pokemon_id;
         });
       break;
 
@@ -101,5 +111,9 @@ export class PokemonListService {
 
       return this.pokemonListChange.next(this.pokemon_list_filtered);
     }
+  }
+
+  refresh() {
+    return this.getPokemonList();
   }
 }

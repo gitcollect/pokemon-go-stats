@@ -8,7 +8,7 @@ module.exports = {
   entry: {
     'vendor': './src/app/vendor.ts',
     'polyfills': './src/app/polyfills.ts',
-    'app': './src/app/app.ts',
+    'app': './src/app/main.ts',
   },
 
   output: {
@@ -58,13 +58,9 @@ module.exports = {
     new webpack.IgnorePlugin(/vertx/),
     
     new CopyWebpackPlugin([
-      {from: 'src/node_modules/ng2-material/font/MaterialIcons-Regular.ttf', to: 'fonts'},
       {from: 'src/node_modules/lato-font/fonts/lato-normal/lato-normal.ttf', to: 'fonts'},
-      {from: 'src/node_modules/ng2-material/font/MaterialIcons-Regular.woff', to: 'fonts'},
-      {from: 'src/node_modules/ng2-material/font/MaterialIcons-Regular.woff2', to: 'fonts'},
       {from: 'src/node_modules/pogobuf/node_modules/node-pogo-protos/proto', to: 'proto'},
-      {from: 'src/node_modules/node-pogo-signature/lib//proto', to: 'proto'},
-      {from: 'src/app/assets', to: 'assets'}
+      {from: 'src/node_modules/node-pogo-signature/lib//proto', to: 'proto'}
     ])
   ],
 

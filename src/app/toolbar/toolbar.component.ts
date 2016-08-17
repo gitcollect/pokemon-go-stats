@@ -1,8 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {Router} from "@angular/router";
-import {MATERIAL_DIRECTIVES} from "ng2-material";
-import {MdRadioGroup, MdRadioButton, MdUniqueSelectionDispatcher} from "@angular2-material/radio";
-import {MD_INPUT_DIRECTIVES} from "@angular2-material/input";
+
 
 import {LoginService} from "../login/login.service";
 import {PokemonListService} from "../pokemon-list/pokemon-list.service";
@@ -12,14 +10,7 @@ import {SpinnerService} from "../spinner/spinner.service";
 @Component({
   template: require("./toolbar.component.html"),
   selector: "pg-toolbar",
-  styles: [require("./toolbar.component.scss")],
-  directives: [
-    MATERIAL_DIRECTIVES,
-    MD_INPUT_DIRECTIVES,
-    MdRadioGroup,
-    MdRadioButton
-  ],
-  providers: [MdUniqueSelectionDispatcher]
+  styles: [require("./toolbar.component.scss")]
 })
 
 export class ToolbarComponent implements OnInit {
@@ -62,7 +53,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   filterByText() {
-    console.log("filter by text");
     if (this.search.length > 3) {
       this.pokemonListService.filterByText(this.search);
     }
@@ -72,9 +62,7 @@ export class ToolbarComponent implements OnInit {
   refresh() {
     this.spinnerService.show();
     this.search = "";
-    this.sort_by = "date";
-    this.pokemonListService.filterByText("");
-    this.pokemonListService.getPokemonList().then(() => {
+    this.pokemonListService.refresh().then(() => {
       this.spinnerService.hide();
     }).catch(() => {
       this.spinnerService.hide();
@@ -85,6 +73,7 @@ export class ToolbarComponent implements OnInit {
     this.search = "";
     this.sort_by = "date";
     this.pokemonListService.filterByText("");
+    this.pokemonListService.sortPokemonList(this.sort_by);
     this.loginService.logout();
   }
 }

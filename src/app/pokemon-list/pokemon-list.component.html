@@ -1,20 +1,58 @@
-<div id="main-container" flex layout="row" layout-fill layout-wrap layout-align="center start">
-    <div class="pokemon-item" flex="30" flex-gt-sm="23" flex-gt-md="15" layout="column" layout-align="center center"
-    *ngFor="let pokemon of pokemon_list">
-
-        <div class="pokemon-item-card md-whiteframe-2dp" layout="column" layout-align="center center">
-
-        <div class="pokemon-stats" layout="row" layout-align="start center">
-            <div flex="50" class="pokemon-stat-cp">{{ pokemon.pokemon_data.cp }}</div>
-            <div flex="50" class="pokemon-stat-iv" layout="row" layout-align="end center">
-            <md-progress-circle class="iv-circle" mode="determinate" [value]="pokemon.pokemon_data.perfection"></md-progress-circle>
-            <div flex class="iv-display">{{ pokemon.pokemon_data.perfection }}%</div>
+<div class="main-container">
+    <div class="pokemon-list">
+        <div class="pokemon-item" *ngFor="let pokemon of pokemon_list">
+            <div class="pokemon-item-card" (click)="showDetails(pokemon)" [class.recent]="true">
+                <div class="pokemon-stats">
+                    <div class="pokemon-stat-cp">{{ pokemon.pokemon_data.cp }}</div>
+                    <div class="pokemon-stat-iv">
+                        <md-progress-circle class="iv-circle" mode="determinate" [value]="pokemon.pokemon_data.perfection"></md-progress-circle>
+                        <div class="iv-display">{{ pokemon.pokemon_data.perfection }}<span>%</span></div>
+                    </div>
+                </div>
+                <div class="pokemon-img-container">
+                    <img class="pokemon-img" src="{{ pokemon.img }}">
+                </div>
+                <div class="pokemon-name"><span>{{ pokemon.name }}</span></div>
             </div>
         </div>
-        <div>
-            <img class="pokemon-img" src="{{pokemon.img}}">
+    </div>
+</div>
+
+<div class="pokemon-details" [hidden]="!show_details" (click)="show_details=false">
+    <div class="pokemon-details-card">
+        <div class="pokemon-detail-name">{{ selected_pokemon.name }}</div>
+        <div class="pokemon-detail-sumary">
+            <div class="pokemon-detail-types">
+
+                <img class="pokemon-img" src="http://www.serebii.net/pokedex-bw/type/{{ type }}.gif" *ngFor="let type of selected_pokemon.type">
+                <div class="pokemon-detail-stat-cp">{{ selected_pokemon.pokemon_data.cp }}</div>
+            </div>
+            <div class="pokemon-detail-img-container">
+                <img class="pokemon-img" src="{{ selected_pokemon.img }}">
+            </div>
+            <div class="pokemon-detail-stats">
+                <div class="pokemon-detail-stat-iv">
+                    <md-progress-circle class="detail-iv-circle" mode="determinate" [value]="selected_pokemon.pokemon_data.perfection"></md-progress-circle>
+                    <div class="detail-iv-display">{{ selected_pokemon.pokemon_data.perfection }}<span>%</span></div>
+                </div>
+            </div>
         </div>
-        <div class="pokemon-name"><span>{{ pokemon.name }}</span></div>
+        <div class="pokemon-detail-ivs">
+            <div class="iv-value">
+                <span>ATK</span>
+                <md-progress-bar mode="determinate" value="100 * selected_pokemon.pokemon_data.individual_attack / 15" color="warn"></md-progress-bar>
+                <div>{{ selected_pokemon.pokemon_data.individual_attack }}<span>/15</span></div>
+            </div>
+            <div class="iv-value">
+                <span>DEF</span>
+                <md-progress-bar mode="determinate" value="100 * selected_pokemon.pokemon_data.individual_defense/ 15" color="accent"></md-progress-bar>
+                <div>{{ selected_pokemon.pokemon_data.individual_defense }}<span>/15</span></div>
+            </div>
+            <div class="iv-value">
+                <span>STA</span>
+                <md-progress-bar mode="determinate" value="100 * selected_pokemon.pokemon_data.individual_stamina/ 15" color="primary"></md-progress-bar>
+                <div>{{ selected_pokemon.pokemon_data.individual_stamina }}<span>/15</span></div>
+            </div>
         </div>
     </div>
 </div>

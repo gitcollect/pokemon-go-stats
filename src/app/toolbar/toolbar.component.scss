@@ -1,18 +1,28 @@
+::host {
+  overflow: hidden;
+}
+
 .toolbar {
   padding: 0px;
   min-height: 90px;
   height: 90px;
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid #424242;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .toolbar-content {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
-
-  img {
-    height: 70px;
-  }
 }
 
 .toolbar-topline {
@@ -22,7 +32,8 @@
   height: 20px;
   width: 100%;
   min-height: 20px;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid #424242;
+  background: firebrick;
   cursor: move;
   
   button {
@@ -41,12 +52,14 @@
   min-width: 40px;
   
   &:hover {
-    background: lightcoral;
+    background: darkred
   }
 }
 
-.window-control i {
+.window-control md-icon {
   font-size: 18px;
+  height: 20px;
+  width: 20px;
 }
 
 .close-button {
@@ -81,8 +94,36 @@ md-radio-button {
 
 .toolbar-buttons {
   max-width: 100px;
+  display: flex;
+
+  button {
+    min-width: 28;
+    margin: 4px;
+    padding: 0px 2px;
+  }
 }
 
 .toolbar-search {
+  display: flex;
+  flex-basis: 125px;
   margin-left: 20px;
+}
+
+.filter-bar {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.spacer {
+  display: flex;
+  flex: 1;
+}
+
+.button-clear {
+  min-width: 28;
+  margin: 4px;
+  padding: 0px 2px;
 }

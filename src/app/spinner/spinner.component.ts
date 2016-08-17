@@ -1,7 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {MATERIAL_DIRECTIVES} from "ng2-material";
-import {MdProgressCircle, MdSpinner} from "@angular2-material/progress-circle/progress-circle";
 
 import {SpinnerService} from "./spinner.service";
 
@@ -9,11 +7,7 @@ import {SpinnerService} from "./spinner.service";
 @Component({
   template: require("./spinner.component.html"),
   selector: "pg-spinner",
-  styles: [require("./spinner.component.scss")],
-  directives: [
-    MATERIAL_DIRECTIVES,
-    MdProgressCircle,
-    MdSpinner]
+  styles: [require("./spinner.component.scss")]
 })
 
 export class SpinnerComponent implements OnInit {

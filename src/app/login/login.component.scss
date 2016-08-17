@@ -1,4 +1,29 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  display: flex;
+  flex: 0.5;
+  flex-direction: column;
+  background: rgba(0,0,0,0.1);
+  border-top: 5px solid firebrick;
+  box-shadow:  
+    0px 1px 5px 0px rgba(117, 117, 117, 0.2),
+    0px 2px 2px 0px rgba(117, 117, 117, 0.14),
+    0px 3px 1px -2px rgba(117, 117, 117, 0.12);
+}
+
 .login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   height: 200px;
 
   md-input {
@@ -11,8 +36,8 @@
   max-width: 100px;
   background: firebrick;
   color: white;
-  
-  &:hover {
-    background: darkred;
+
+  &:not([disabled]):hover {
+     background: darkred;
   }
 }

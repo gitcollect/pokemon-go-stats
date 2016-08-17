@@ -1,7 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {MATERIAL_DIRECTIVES} from "ng2-material";
-import {MdProgressCircle, MdSpinner} from "@angular2-material/progress-circle/progress-circle";
 const pogobuf = require("pogobuf");
 
 import {PokemonListService} from "./pokemon-list.service";
@@ -11,16 +9,16 @@ import {SpinnerService} from "../spinner/spinner.service";
 @Component({
   template: require("./pokemon-list.component.html"),
   selector: "pg-pokemon-list",
-  styles: [require("./pokemon-list.component.scss")],
-  directives: [
-    MATERIAL_DIRECTIVES,
-    MdProgressCircle,
-    MdSpinner]
+  styles: [require("./pokemon-list.component.scss")]
 })
 
 export class PokemonListComponent implements OnInit {
 
   pokemon_list: Array<Object> = [];
+  show_details: Boolean = false;
+  selected_pokemon: any = {
+    pokemon_data: {}
+  };
 
    constructor(
     private router: Router,
@@ -43,5 +41,10 @@ export class PokemonListComponent implements OnInit {
     }).catch((reason) => {
       console.log("Error getting inventory: " + reason);
     });
+  }
+
+  showDetails(pokemon: any) {
+    this.selected_pokemon = pokemon;
+    this.show_details = true;
   }
 }

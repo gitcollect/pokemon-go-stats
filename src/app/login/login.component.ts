@@ -1,9 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {MATERIAL_DIRECTIVES} from "ng2-material";
-import {MdProgressCircle, MdSpinner} from "@angular2-material/progress-circle/progress-circle";
-import {MD_INPUT_DIRECTIVES} from "@angular2-material/input";
-import {FORM_DIRECTIVES} from "@angular/forms";
 
 import {LoginService} from "./login.service";
 import {SpinnerService} from "../spinner/spinner.service";
@@ -12,13 +8,7 @@ import {SpinnerService} from "../spinner/spinner.service";
 @Component({
   template: require("./login.component.html"),
   selector: "pg-login",
-  styles: [require("./login.component.scss")],
-  directives: [
-    MATERIAL_DIRECTIVES,
-    MdProgressCircle,
-    MdSpinner,
-    MD_INPUT_DIRECTIVES,
-    FORM_DIRECTIVES]
+  styles: [require("./login.component.scss")]
 })
 
 export class LoginComponent implements OnInit {
