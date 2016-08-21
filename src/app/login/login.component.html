@@ -6,6 +6,7 @@
               type="email"
               name="email"
               placeholder="Email Address"
+              dividerColor="accent"
               [(ngModel)]="user.email">
     </md-input>
     <md-input #password
@@ -13,8 +14,11 @@
               type="password"
               name="password"
               placeholder="Password"
+              dividerColor="accent"
               [(ngModel)]="user.password">
     </md-input>
     <button md-raised-button class="login-button" type="submit" [disabled]="!loginForm.form.valid">Login</button>
   </form>
+
+  <div class="error" [hidden]="error===''">{{ error }}</div>
 </md-card>

@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
     password: "",
   };
 
+  error: string = "";
+
   constructor(
     private router: Router,
     private loginService: LoginService,
@@ -35,10 +37,19 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.spinnerService.show();
     this.loginService.login(this.user.email, this.user.password).then(() => {
+      this.error = "";
       console.log("Login sucessfull");
-    }).catch((reason) => {
+    }).catch((reason: Error) => {
+
       this.spinnerService.hide();
-      alert("Login no válido");
+      if (reason.message.includes("403")) {
+        this.error = "Error 403: Could not login with the provided email and password";
+      }
+      else {
+        this.error = reason.message;
+      }
+
+      console.log(reason);
       this.user = {
         email: this.user.email,
         password: ""
